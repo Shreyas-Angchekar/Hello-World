@@ -24,7 +24,7 @@ jobs:
           at: my_workspace
 
       - run: |
-          if [[ $(wc -l sample.txt) -ge "3" ]]; then
+          if [[ $(wc -l sample.txt) -ge "30" ]]; then
             echo "It worked!";
           else
             echo "It has Failed"; exit 1
