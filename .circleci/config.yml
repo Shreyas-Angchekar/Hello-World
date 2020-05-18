@@ -8,6 +8,7 @@ jobs:
       - run: echo "A first hello"
       - run: mkdir -p my_workspace
       - run: printf "hello \n this \n is \n trial \n circleci \ntest" > my_workspace/sample.txt
+      - run: ls-al
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
           root: my_workspace   
@@ -18,13 +19,14 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "A more familiar hi"  
+      - run: echo "A more familiar hi"
+      - run: ls -al
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
 
       - run: |
-          if [[ $(wc -l my_workspace/sample.txt) -ge "30" ]]; then
+          if [[ $(wc -l sample) -ge "30" ]]; then
             echo "It worked!";
           else
             echo "It has Failed"; exit 1
