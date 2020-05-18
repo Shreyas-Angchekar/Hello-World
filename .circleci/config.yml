@@ -8,7 +8,7 @@ jobs:
       - run: echo "A first hello"
       - run: mkdir -p my_workspace
       - run: printf "hello \n this \n is \n trial \n circleci \ntest" > my_workspace/sample.txt
-      - run: ls-al
+      - run: ls -al
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
           root: my_workspace   
