@@ -9,6 +9,7 @@ jobs:
       - run: mkdir -p my_workspace
       - run: printf "hello \n this \n is \n trial \n circleci \ntest" > my_workspace/sample.txt
       - run: ls -al
+      - run: cat src/JavaCode.txt
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
           root: my_workspace   
@@ -21,6 +22,7 @@ jobs:
       - checkout
       - run: echo "A more familiar hi"
       - run: ls -al
+      - run: cat src/JavaCode.txt
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
