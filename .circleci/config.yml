@@ -7,12 +7,12 @@ jobs:
       - checkout
       - run: echo "A first hello"
       - run: mkdir -p my_workspace
-      - run: printf "hello \n this \n is \n trial \n circleci \ntest" > my_workspace/echo-output
+      - run: printf "hello \n this \n is \n trial \n circleci \ntest" > my_workspace/sample.txt
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
           root: my_workspace   
           paths:
-            - echo-output  
+            - sample  
   two:
     docker:
       - image: circleci/ruby:2.4.1
@@ -24,7 +24,7 @@ jobs:
           at: my_workspace
 
       - run: |
-          if [[ $(wc -l < echo-output) -ge "3" ]]; then
+          if [[ $(wc -l sample.txt) -ge "3" ]]; then
             echo "It worked!";
           else
             echo "Nope!"; exit 1
