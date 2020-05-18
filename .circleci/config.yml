@@ -12,7 +12,7 @@ jobs:
           # Must be an absolute path, or relative path from working_directory
           root: my_workspace   
           paths:
-            - sample  
+            - sample.txt  
   two:
     docker:
       - image: circleci/ruby:2.4.1
